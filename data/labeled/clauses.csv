@@ -1,0 +1,17 @@
+clause_type,severity,excerpt,source,notes
+automatic_renewal,high,"This lease shall automatically renew for successive one-year terms unless Tenant provides written notice of non-renewal at least sixty (60) days prior.",manual,60-day trap
+automatic_renewal,low,"Upon expiration the lease converts to month-to-month until terminated by either party with thirty (30) days written notice.",manual,Tenant friendly
+early_termination,high,"Tenant shall be liable for all remaining rent plus a termination fee equal to three months rent and shall forfeit the security deposit.",manual,Triple penalty
+early_termination,medium,"Tenant may terminate with sixty days written notice upon payment of one and one-half months rent.",manual,Significant but not extreme
+late_fees,high,"A late charge of $150 per day shall be assessed for each day rent remains unpaid after the 3rd.",manual,Daily fee
+late_fees,low,"A one-time late fee of $50 will be charged if rent is not received by the 5th of the month.",manual,Flat reasonable
+security_deposit,high,"Landlord may deduct any amounts deemed necessary at Landlord's sole discretion. Deposit returned within 90 days.",manual,Sole discretion
+security_deposit,low,"Security deposit of one month rent returned within 21 days with itemized statement.",manual,Fair
+maintenance_repairs,high,"Tenant shall be responsible for all repairs including plumbing electrical HVAC and appliances regardless of cause.",manual,Full liability on tenant
+maintenance_repairs,low,"Landlord shall maintain premises in habitable condition. Tenant responsible for minor maintenance only.",manual,Fair split
+landlord_entry,high,"Landlord may enter the premises at any time without prior notice to Tenant.",manual,No notice
+landlord_entry,low,"Landlord shall provide at least 24 hours written notice before entering except in emergencies.",manual,Standard
+subletting,high,"Subletting is strictly prohibited. Violation results in immediate lease termination and forfeiture of deposit.",manual,Absolute ban
+subletting,medium,"Tenant may not sublet without prior written consent which may be withheld at Landlord's sole discretion.",manual,Sole discretion
+guest_restrictions,high,"No guest may stay more than two consecutive nights. Violation constitutes immediate grounds for eviction.",manual,Very restrictive
+guest_restrictions,medium,"Guests may not stay more than seven consecutive days or fourteen days total per month without approval.",manual,Two-week limit

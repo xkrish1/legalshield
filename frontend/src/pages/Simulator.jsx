@@ -1,18 +1,14 @@
 import React from 'react'
 import LandlordSim from '../components/simulator/LandlordSim'
-import LawyerFinder from '../components/lawyer/LawyerFinder'
 
 export default function Simulator() {
   return (
     <div className="fade-in">
-      <h1 className="page-title">Tenant Tools</h1>
+      <h1 className="page-title">Negotiation Practice</h1>
       <p className="page-subtitle">
-        Simulate landlord responses and find legal help near you.
+        Practice real tenant negotiation scenarios against a landlord. Each round, pick the best response from 4 options — guided by NJ tenant law.
       </p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <LandlordSim />
-        <LawyerFinder />
-      </div>
+      <LandlordSim />
     </div>
   )
 }

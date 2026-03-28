@@ -145,22 +145,47 @@ Write only the letter body. Professional, concise, ready to send."""
         return _letter_template(tenant_name, landlord_name, property_address, move_out_date, reason)
 
 
-def simulate_landlord_response(scenario: str, flags: list = None) -> str:
+def simulate_landlord_response(scenario: str, flags: list = None,
+                               history: list = None) -> str:
+    """
+    Multi-turn landlord negotiation simulator.
+    history: list of {"role": "tenant"|"landlord", "content": str}
+    """
     if not flags:
         flags = []
     if not OLLAMA_AVAILABLE:
         return _landlord_stub(scenario)
 
-    flag_context = f"\nKnown lease clauses: {', '.join(flags)}" if flags else ""
-    prompt = f"""You are a landlord responding to a tenant.
-Tenant scenario: {scenario}{flag_context}
-Write a realistic landlord response (2-4 sentences). Firm but professional."""
+    flag_context = f"\nKnown lease issues: {', '.join(flags)}" if flags else ""
+
+    system = f"""You are playing the role of a firm but professional landlord in a negotiation with a tenant.
+The tenant's situation: {scenario}{flag_context}
+
+Rules:
+- Stay in character as the landlord throughout the conversation.
+- Be realistic: start firm, but soften slightly if the tenant makes legally sound points.
+- Keep responses to 2-4 sentences. Never capitulate completely.
+- Reference the lease when possible. Never threaten anything illegal.
+- Do NOT break character or explain what you're doing."""
+
+    messages = [{"role": "system", "content": system}]
+
+    if history:
+        for turn in history:
+            role = "user" if turn["role"] == "tenant" else "assistant"
+            messages.append({"role": role, "content": turn["content"]})
+    else:
+        # First turn: landlord opens with their position
+        messages.append({
+            "role": "user",
+            "content": "(The tenant has raised the issue. Respond as the landlord.)"
+        })
 
     try:
         response = ollama_client.chat(
             model=MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            options={"temperature": 0.4, "num_predict": 200},
+            messages=messages,
+            options={"temperature": 0.45, "num_predict": 220},
         )
         return response["message"]["content"].strip()
     except Exception as e:

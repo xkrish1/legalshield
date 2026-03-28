@@ -167,6 +167,7 @@ def simulate():
         response_text = simulate_landlord_response(
             scenario=data["scenario"],
             flags=data.get("lease_flags", []),
+            history=data.get("history", []),
         )
         return jsonify({"response": response_text}), 200
     except Exception as e:

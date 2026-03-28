@@ -41,7 +41,10 @@ export default function Home() {
 
   return (
     <div className="fade-in">
-      <h1 className="page-title">Know Before You Sign</h1>
+      <div style={{ marginBottom: '0.4rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div style={{ width: '3px', height: '2rem', background: 'var(--color-primary)', borderRadius: '2px', flexShrink: 0 }} />
+        <h1 className="page-title" style={{ marginBottom: 0 }}>Know Before You Sign</h1>
+      </div>
       <p className="page-subtitle">
         Upload your lease PDF and we'll flag risky clauses in plain English — free, private, and instant.
       </p>

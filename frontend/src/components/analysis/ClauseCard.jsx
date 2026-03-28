@@ -29,8 +29,8 @@ export default function ClauseCard({ flag }) {
         <div className="fade-in" style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {excerpt && (
             <blockquote style={{
-              background: '#f3f4f6',
-              borderLeft: '3px solid var(--color-border)',
+              background: 'var(--color-surface-subtle)',
+              borderLeft: '3px solid var(--color-primary)',
               padding: '0.6rem 1rem',
               borderRadius: 'var(--radius-sm)',
               fontSize: '0.85rem',
@@ -72,12 +72,12 @@ export default function ClauseCard({ flag }) {
               padding: '0.6rem 0.85rem',
               borderRadius: 'var(--radius-md)',
               background: fee_analysis.severity_signal === 'low'
-                ? '#f0fdf4' : fee_analysis.severity_signal === 'medium'
-                ? '#fffbeb' : '#fef2f2',
+                ? 'var(--severity-low-bg)' : fee_analysis.severity_signal === 'medium'
+                ? 'var(--severity-medium-bg)' : 'var(--severity-high-bg)',
               border: `1px solid ${
                 fee_analysis.severity_signal === 'low'
-                  ? '#bbf7d0' : fee_analysis.severity_signal === 'medium'
-                  ? '#fde68a' : '#fecaca'
+                  ? 'rgba(52,201,122,0.25)' : fee_analysis.severity_signal === 'medium'
+                  ? 'rgba(240,168,50,0.25)' : 'rgba(224,85,85,0.25)'
               }`,
               fontSize: '0.8rem',
             }}>

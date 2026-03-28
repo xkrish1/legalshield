@@ -1,30 +1,55 @@
 :root {
-  --color-primary:      #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-danger:       #dc2626;
-  --color-warning:      #d97706;
-  --color-success:      #16a34a;
-  --color-muted:        #6b7280;
-  --color-bg:           #f9fafb;
-  --color-surface:      #ffffff;
-  --color-border:       #e5e7eb;
-  --color-text:         #111827;
-  --color-text-muted:   #6b7280;
+  /* ── Brand / accent ─────────────────────────────────── */
+  --color-primary:      #c8a84b;   /* legal gold            */
+  --color-primary-dark: #b8952f;   /* gold hover            */
+  --color-primary-glow: rgba(200,168,75,0.15);
 
-  --severity-high:    #dc2626;
-  --severity-medium:  #d97706;
-  --severity-low:     #16a34a;
-  --severity-unclear: #6b7280;
+  /* ── Semantic ───────────────────────────────────────── */
+  --color-danger:       #e05555;
+  --color-warning:      #f0a832;
+  --color-success:      #34c97a;
+  --color-muted:        #4a6580;
 
+  /* ── Backgrounds ────────────────────────────────────── */
+  --color-bg:               #07111f;   /* page background        */
+  --color-surface:          #0d1e34;   /* card / panel           */
+  --color-surface-elevated: #122640;   /* modals, dropzone hover */
+  --color-surface-subtle:   #0a1828;   /* subtle inset bg        */
+
+  /* ── Borders ────────────────────────────────────────── */
+  --color-border:       #1e3554;
+  --color-border-light: #152d4a;
+
+  /* ── Text ───────────────────────────────────────────── */
+  --color-text:         #dde6f0;
+  --color-text-muted:   #6e8fa8;
+  --color-text-heading: #eef2f8;
+
+  /* ── Severity (adjusted for dark bg) ────────────────── */
+  --severity-high:      #e05555;
+  --severity-medium:    #f0a832;
+  --severity-low:       #34c97a;
+  --severity-unclear:   #4a6580;
+
+  /* ── Severity bg (dark-theme tinted) ────────────────── */
+  --severity-high-bg:     rgba(224,85,85,0.12);
+  --severity-medium-bg:   rgba(240,168,50,0.12);
+  --severity-low-bg:      rgba(52,201,122,0.12);
+  --severity-unclear-bg:  rgba(74,101,128,0.12);
+
+  /* ── Radius ─────────────────────────────────────────── */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
 
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.08);
+  /* ── Shadows (deeper on dark bg) ────────────────────── */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.45);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.55);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', monospace;
+  /* ── Fonts ──────────────────────────────────────────── */
+  --font-sans:   -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:  Georgia, 'Times New Roman', serif;
+  --font-mono:   'SF Mono', 'Fira Code', monospace;
 }

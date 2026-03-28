@@ -13,7 +13,7 @@ export default function RiskGauge({ score, bucket }) {
     <div className="card" style={{ textAlign: 'center' }}>
       <p style={{ fontWeight: 600, marginBottom: '1rem' }}>Risk Score</p>
       <svg width="140" height="140" viewBox="0 0 140 140">
-        <circle cx="70" cy="70" r="54" fill="none" stroke="#e5e7eb" strokeWidth="12" />
+        <circle cx="70" cy="70" r="54" fill="none" stroke="#1e3554" strokeWidth="12" />
         <circle
           cx="70" cy="70" r="54"
           fill="none"
@@ -26,7 +26,7 @@ export default function RiskGauge({ score, bucket }) {
           style={{ transition: 'stroke-dashoffset 1s ease' }}
         />
         <text x="70" y="66" textAnchor="middle" fontSize="26" fontWeight="700" fill={color}>{score}</text>
-        <text x="70" y="84" textAnchor="middle" fontSize="11" fill="#6b7280">points</text>
+        <text x="70" y="84" textAnchor="middle" fontSize="11" fill="#6e8fa8">points</text>
       </svg>
       <div style={{
         display: 'inline-block',

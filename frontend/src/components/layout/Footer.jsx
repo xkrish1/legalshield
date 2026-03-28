@@ -3,14 +3,36 @@ import React from 'react'
 export default function Footer() {
   return (
     <footer style={{
-      borderTop: '1px solid var(--color-border)',
-      padding: '1rem 1.5rem',
-      textAlign: 'center',
-      fontSize: '0.8rem',
-      color: 'var(--color-text-muted)',
+      background: '#050e1a',
+      borderTop: '1px solid #1e3554',
+      padding: '1.25rem 2rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '1rem',
+      flexWrap: 'wrap',
     }}>
-      LeaseShield is for informational purposes only and does not constitute legal advice.
-      Always consult a qualified attorney before signing a lease.
+      <span style={{
+        fontFamily: 'Georgia, serif',
+        fontSize: '0.85rem',
+        color: '#c8a84b',
+        fontWeight: 600,
+        letterSpacing: '0.01em',
+      }}>
+        ⚖️ LeaseShield
+      </span>
+      <p style={{
+        fontSize: '0.75rem',
+        color: '#3a5570',
+        textAlign: 'center',
+        flex: 1,
+      }}>
+        For informational purposes only — not legal advice.
+        Always consult a qualified attorney before signing a lease.
+      </p>
+      <span style={{ fontSize: '0.75rem', color: '#2a4060' }}>
+        NJ Tenant Rights
+      </span>
     </footer>
   )
 }

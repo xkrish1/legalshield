@@ -6,8 +6,8 @@ import Button from '../components/ui/Button'
 import Spinner from '../components/ui/Spinner'
 
 const RELEVANT_TYPES = ['automatic_renewal', 'early_termination']
-const SEVERITY_COLOR = { high: '#fef2f2', medium: '#fffbeb', low: '#f0fdf4', unclear: '#f9fafb' }
-const SEVERITY_BORDER = { high: '#fecaca', medium: '#fde68a', low: '#bbf7d0', unclear: '#e5e7eb' }
+const SEVERITY_COLOR  = { high: 'var(--severity-high-bg)',   medium: 'var(--severity-medium-bg)', low: 'var(--severity-low-bg)',   unclear: 'var(--severity-unclear-bg)' }
+const SEVERITY_BORDER = { high: 'rgba(224,85,85,0.25)',       medium: 'rgba(240,168,50,0.25)',      low: 'rgba(52,201,122,0.25)',    unclear: 'rgba(74,101,128,0.25)' }
 
 const EMPTY = {
   tenant_name: '',
@@ -68,8 +68,8 @@ export default function Letter() {
           marginBottom: '1.5rem',
           padding: '1rem 1.25rem',
           borderRadius: 'var(--radius-md)',
-          border: '1px solid #bfdbfe',
-          background: '#eff6ff',
+          border: '1px solid rgba(200,168,75,0.25)',
+          background: 'rgba(200,168,75,0.06)',
         }}>
           <p style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.75rem' }}>
             📋 Lease Terms Detected — letter will reference these clauses
@@ -100,8 +100,8 @@ export default function Letter() {
           marginBottom: '1.5rem',
           padding: '0.75rem 1rem',
           borderRadius: 'var(--radius-md)',
-          border: '1px solid #e5e7eb',
-          background: '#f9fafb',
+          border: '1px solid var(--color-border)',
+          background: 'var(--color-surface-subtle)',
           fontSize: '0.85rem',
           color: 'var(--color-text-muted)',
         }}>

@@ -1,8 +1,8 @@
 import React from 'react'
 
 const variants = {
-  primary:   { background: 'var(--color-primary)',  color: '#fff', border: 'none' },
-  danger:    { background: 'var(--color-danger)',   color: '#fff', border: 'none' },
+  primary:   { background: 'var(--color-primary)',  color: '#07111f', border: 'none', fontWeight: 700 },
+  danger:    { background: 'var(--color-danger)',   color: '#fff',    border: 'none' },
   secondary: { background: 'transparent', color: 'var(--color-primary)', border: '1px solid var(--color-primary)' },
   ghost:     { background: 'transparent', color: 'var(--color-text-muted)', border: '1px solid var(--color-border)' },
 }

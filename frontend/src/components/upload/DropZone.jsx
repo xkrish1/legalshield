@@ -31,7 +31,8 @@ export default function DropZone({ onFile }) {
         padding: '4rem 2rem',
         textAlign: 'center',
         cursor: 'pointer',
-        background: dragging ? '#eff6ff' : 'var(--color-surface)',
+        background: dragging ? 'var(--color-surface-elevated)' : 'var(--color-surface)',
+        boxShadow: dragging ? 'inset 0 0 0 1px var(--color-primary), 0 0 30px var(--color-primary-glow)' : 'none',
         transition: 'all 0.2s',
       }}
     >

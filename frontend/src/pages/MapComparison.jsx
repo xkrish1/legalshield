@@ -3,10 +3,10 @@ import ZipSearch from '../components/map/ZipSearch'
 import LeaseMap from '../components/map/LeaseMap'
 import { fetchNearbyLeases, fetchLeaseDetail, leaseDownloadUrl } from '../services/api'
 
-const RISK_COLORS = { High: '#dc2626', Moderate: '#d97706', Low: '#16a34a' }
-const RISK_BG     = { High: '#fee2e2', Moderate: '#fef3c7', Low: '#dcfce7' }
-const SEV_COLOR   = { high: '#dc2626', medium: '#d97706', low: '#16a34a', unclear: '#6b7280' }
-const SEV_BG      = { high: '#fee2e2', medium: '#fef3c7', low: '#dcfce7', unclear: '#f3f4f6' }
+const RISK_COLORS = { High: '#e05555', Moderate: '#f0a832', Low: '#34c97a' }
+const RISK_BG     = { High: 'rgba(224,85,85,0.12)', Moderate: 'rgba(240,168,50,0.12)', Low: 'rgba(52,201,122,0.12)' }
+const SEV_COLOR   = { high: '#e05555', medium: '#f0a832', low: '#34c97a', unclear: '#4a6580' }
+const SEV_BG      = { high: 'rgba(224,85,85,0.12)', medium: 'rgba(240,168,50,0.12)', low: 'rgba(52,201,122,0.12)', unclear: 'rgba(74,101,128,0.12)' }
 
 function ClausePill({ severity, label }) {
   return (

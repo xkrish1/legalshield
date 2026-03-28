@@ -41,6 +41,15 @@ export async function fetchNearbyLeases(zip) {
   return handleResponse(res)
 }
 
+export async function fetchLeaseDetail(leaseId) {
+  const res = await fetch(`${BASE}/leases/nearby/${encodeURIComponent(leaseId)}`)
+  return handleResponse(res)
+}
+
+export function leaseDownloadUrl(leaseId) {
+  return `${BASE}/leases/nearby/${encodeURIComponent(leaseId)}/download`
+}
+
 export async function healthCheck() {
   const res = await fetch(`${BASE}/health`)
   return handleResponse(res)

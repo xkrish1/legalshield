@@ -54,19 +54,6 @@ export default function Home() {
         <DropZone onFile={handleFile} />
       )}
 
-      <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
-        {[
-          { icon: '🔍', title: 'Clause Detection', desc: '8 risky clause types detected automatically' },
-          { icon: '📊', title: 'Risk Scoring',     desc: 'Transparent severity scoring with plain-English summaries' },
-          { icon: '🔒', title: '100% Private',     desc: 'Runs locally on your machine — nothing sent to external servers' },
-        ].map(f => (
-          <div key={f.title} className="card" style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{f.icon}</div>
-            <p style={{ fontWeight: 600, marginBottom: '0.3rem' }}>{f.title}</p>
-            <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{f.desc}</p>
-          </div>
-        ))}
-      </div>
 
       <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
         LeaseShield is informational only and is not a substitute for legal advice.

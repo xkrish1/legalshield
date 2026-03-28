@@ -13,6 +13,15 @@ except ImportError:
     OLLAMA_AVAILABLE = False
 
 from few_shot import SYSTEM_PROMPT, build_prompt, FALLBACK_EXAMPLES
+from fee_analysis import analyze_late_fee
+
+_current_lease_rent: Optional[float] = None
+
+
+def set_lease_rent(rent: Optional[float]):
+    """Called once per lease upload from app.py after rent extraction."""
+    global _current_lease_rent
+    _current_lease_rent = rent
 
 MODEL    = os.getenv("OLLAMA_MODEL", "llama3.2:3b")
 BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
@@ -32,13 +41,22 @@ CLAUSE_JSON_SCHEMA = {
 }
 
 
-def analyze_clause(chunk: str, clause_type: str) -> Optional[dict]:
+def analyze_clause(chunk: str, clause_type: str, region: str = "",
+                   fee_context: dict = None, severity_hint: str = None) -> Optional[dict]:
     if not chunk or not clause_type:
         return None
-    if not OLLAMA_AVAILABLE:
-        return _mock_response(clause_type)
 
-    messages = build_prompt(chunk, clause_type)
+    messages = build_prompt(chunk, clause_type, region=region,
+                            fee_context=fee_context, severity_hint=severity_hint)
+
+    if not OLLAMA_AVAILABLE:
+        result = _mock_response(clause_type)
+        if severity_hint:
+            result["severity"] = severity_hint
+        if fee_context:
+            result["fee_analysis"] = fee_context
+        return result
+
     try:
         response = ollama_client.chat(
             model=MODEL,
@@ -46,29 +64,73 @@ def analyze_clause(chunk: str, clause_type: str) -> Optional[dict]:
             format=CLAUSE_JSON_SCHEMA,
             options={"temperature": 0.1, "num_predict": 512},
         )
-        raw = response["message"]["content"]
-        return _parse_and_fix(raw, clause_type, chunk)
+        raw    = response["message"]["content"]
+        result = _parse_and_fix(raw, clause_type, chunk)
+
+        # Hard override — Python severity always wins over LLM output
+        if severity_hint:
+            result["severity"] = severity_hint
+        if fee_context:
+            result["fee_analysis"] = fee_context
+
+        return result
+
     except Exception as e:
         err = str(e).lower()
         if "connection" in err or "refused" in err:
             print(f"[LLM] Ollama not running — using mock for {clause_type}")
         else:
             print(f"[LLM] Error for {clause_type}: {e}")
-        return _mock_response(clause_type)
+        result = _mock_response(clause_type)
+        if severity_hint:
+            result["severity"] = severity_hint
+        if fee_context:
+            result["fee_analysis"] = fee_context
+        return result
 
 
-def generate_exit_letter(tenant_name, landlord_name, property_address, move_out_date, reason="personal reasons") -> str:
+def generate_exit_letter(tenant_name, landlord_name, property_address, move_out_date,
+                         reason="personal reasons", lease_flags: list = None) -> str:
     if not OLLAMA_AVAILABLE:
         return _letter_template(tenant_name, landlord_name, property_address, move_out_date, reason)
 
-    prompt = f"""Write a formal tenant notice-to-vacate letter:
-- Tenant: {tenant_name}
-- Landlord: {landlord_name}
-- Address: {property_address}
-- Move-out date: {move_out_date}
-- Reason: {reason}
+    # Build lease-specific context from analyzed flags
+    lease_context_lines = []
+    if lease_flags:
+        for flag in lease_flags:
+            clause = flag.get("clause_type", "")
+            excerpt = flag.get("excerpt", "")
+            if clause == "automatic_renewal" and excerpt:
+                lease_context_lines.append(
+                    f"- Notice requirement (from lease): \"{excerpt}\""
+                )
+            elif clause == "early_termination" and excerpt:
+                lease_context_lines.append(
+                    f"- Early termination terms (from lease): \"{excerpt}\""
+                )
 
-Write only the letter. Professional, concise, ready to send."""
+    lease_context_block = ""
+    if lease_context_lines:
+        lease_context_block = (
+            "\n\nRELEVANT LEASE CLAUSES — you must reference these in the letter:\n"
+            + "\n".join(lease_context_lines)
+            + "\nAcknowledge these terms explicitly in the letter body."
+        )
+
+    prompt = f"""Write a formal letter FROM a tenant TO their landlord giving notice to vacate.
+
+The tenant ({tenant_name}) is writing this letter to their landlord ({landlord_name}).
+The letter must be signed by {tenant_name} at the bottom.
+The letter must be addressed to {landlord_name} at the top (Dear {landlord_name}).
+
+Details:
+- Written by (tenant): {tenant_name}
+- Addressed to (landlord): {landlord_name}
+- Property address: {property_address}
+- Move-out date: {move_out_date}
+- Reason for leaving: {reason}{lease_context_block}
+
+Write only the letter body. Professional, concise, ready to send."""
 
     try:
         response = ollama_client.chat(
@@ -126,8 +188,12 @@ def _parse_and_fix(raw: str, clause_type: str, original_chunk: str) -> Optional[
     except (TypeError, ValueError):
         data["confidence"] = 0.7
 
-    if not data.get("excerpt") or len(data["excerpt"]) < 10:
-        data["excerpt"] = original_chunk[:200]
+    excerpt = data.get("excerpt", "")
+    if not excerpt or len(excerpt) < 10:
+        data["excerpt"] = original_chunk[:300]
+    elif excerpt.lower() not in original_chunk.lower():
+        # Model hallucinated an excerpt not from the actual chunk — replace it
+        data["excerpt"] = original_chunk[:300]
     for field in ["why_it_matters", "plain_english"]:
         if not data.get(field):
             data[field] = "Review this clause carefully before signing."

@@ -1,0 +1,566 @@
+[
+  {
+    "id": "nb_001",
+    "address": "45 Livingston Ave, Apt 3",
+    "zip": "08901",
+    "lat": 40.4908,
+    "lng": -74.4441,
+    "avg_rent": 1800,
+    "risk_bucket": "Low",
+    "overall_risk_score": 15,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "low",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 45 Livingston Ave, Apt 3, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Livingston Properties LLC Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent is $1,800.00 paid as follows: $1,800 per month,",
+        "why_it_matters": "This clause complies with NJ law requiring a 5-business-day grace period for rent payments.",
+        "plain_english": "The lease follows standard New Jersey guidelines for late payment fees, allowing tenants a 5-day grace period to pay rent.",
+        "questions_to_ask": [
+          "Is the $36.00 late fee amount reasonable?",
+          "Are there any other conditions that trigger late fees?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "low",
+        "excerpt": "A security deposit of one month's rent ($1,800.00) is required at signing.",
+        "why_it_matters": "The tenant is required to pay a fixed amount equal to one month's rent upfront, which may not be reasonable for all situations.",
+        "plain_english": "The landlord gets $1,800 from you when you sign the lease, even though it's only for 12 months.",
+        "questions_to_ask": [
+          "Can we negotiate the security deposit amount?",
+          "How will itemized deductions work?"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "low",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 45 Livingston Ave, Apt 3, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Livingston Properties LLC Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent is $1,800.00 paid as follows: $1,800 per month,",
+        "why_it_matters": "This clause indicates the tenant pays for all repairs regardless of cause, but the excerpt does not mention this specific language.",
+        "plain_english": "The lease requires a large security deposit, which may be used to cover potential damages or repairs.",
+        "questions_to_ask": [
+          "Does local law allow waiving landlord repair obligations?",
+          "Can we limit this to minor repairs?"
+        ],
+        "confidence": 0.94
+      }
+    ]
+  },
+  {
+    "id": "nb_002",
+    "address": "88 George St, Unit 2B",
+    "zip": "08901",
+    "lat": 40.4863,
+    "lng": -74.4492,
+    "avg_rent": 1950,
+    "risk_bucket": "High",
+    "overall_risk_score": 90,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "medium",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 88 George St, Unit 2B, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: George Street Realty Inc. Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent shall be $1,950.00 paid as follows: $1,950 per mon",
+        "why_it_matters": "The late fee is calculated as 8% of monthly rent, which may result in significant charges for tenants who miss payments.",
+        "plain_english": "Late fees are automatically applied if rent isn't received by the 5th, and they're based on 8% of the monthly rent.",
+        "questions_to_ask": [
+          "Is there a grace period before late fees kick in?",
+          "Can the landlord adjust the amount of the late fee?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "medium",
+        "excerpt": "Tenant shall pay a security deposit equal to one and a half (1.5) months rent ($2,925.00) upon signing.",
+        "why_it_matters": "The clause allows the landlord to keep up to 50% of the deposit for damages beyond normal wear and tear without providing itemized deductions, which may lead to disputes.",
+        "plain_english": "The landlord can keep part of your deposit if you damage the property, but they don't have to explain why.",
+        "questions_to_ask": [
+          "Will you provide itemized deductions with receipts?",
+          "Can we do a move-in walkthrough?"
+        ],
+        "confidence": 0.92
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "medium",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 88 George St, Unit 2B, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: George Street Realty Inc. Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent shall be $1,950.00 paid as follows: $1,950 per mon",
+        "why_it_matters": "This clause may limit the tenant's ability to dispute deductions from their security deposit, potentially leading to disputes.",
+        "plain_english": "The landlord has a lot of power when it comes to deciding what repairs are needed and how much they'll charge for them.",
+        "questions_to_ask": [
+          "Can we limit this to minor repairs?",
+          "Does local law allow waiving landlord repair obligations?"
+        ],
+        "confidence": 0.92
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "medium",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 88 George St, Unit 2B, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: George Street Realty Inc. Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent shall be $1,950.00 paid as follows: $1,950 per mon",
+        "why_it_matters": "This clause gives the landlord broad discretion to enter the property, potentially infringing on the tenant's right to privacy and quiet enjoyment.",
+        "plain_english": "The landlord can enter the rental unit without giving you advance notice.",
+        "questions_to_ask": [
+          "Will you agree to 24 hours notice in writing?",
+          "What qualifies as an emergency?"
+        ],
+        "confidence": 0.96
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "medium",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 88 George St, Unit 2B, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: George Street Realty Inc. Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for a term of twelve (12) months. Monthly rent shall be $1,950.00 paid as follows: $1,950 per mon",
+        "why_it_matters": "This clause gives the landlord significant control over the tenant's ability to sublease, potentially limiting their financial gain from renting out the unit.",
+        "plain_english": "The landlord has the final say on whether you can rent out your apartment to someone else.",
+        "questions_to_ask": [
+          "Can the landlord unreasonably withhold consent?",
+          "What happens if the tenant wants to sublet without permission?"
+        ],
+        "confidence": 0.85
+      },
+      {
+        "clause_type": "automatic_renewal",
+        "severity": "high",
+        "excerpt": "This lease shall automatically renew for successive one-year terms unless Tenant provides 60 days written notice prior to the lease end date.",
+        "why_it_matters": "The automatic renewal clause may conflict with NJ law regarding habitability and repair waivers, as it does not provide a clear process for addressing maintenance issues.",
+        "plain_english": "This means you'll be stuck in another year unless you give 60 days' notice.",
+        "questions_to_ask": [
+          "How will Landlord handle urgent maintenance requests?",
+          "Can Tenant request an exception to the automatic renewal?"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "clause_type": "guest_restrictions",
+        "severity": "high",
+        "excerpt": "Guests may stay no more than 7 consecutive days or 10 days per month.",
+        "why_it_matters": "This clause restricts guest stays to a short period, potentially limiting tenant's freedom and creating an unfair burden.",
+        "plain_english": "The landlord can limit the number of days guests can stay, which could be seen as overly restrictive.",
+        "questions_to_ask": [
+          "How will this restriction be enforced?",
+          "Is there any flexibility for special circumstances?"
+        ],
+        "confidence": 0.92
+      }
+    ]
+  },
+  {
+    "id": "nb_003",
+    "address": "220 Somerset St, Apt 5",
+    "zip": "08901",
+    "lat": 40.4882,
+    "lng": -74.4518,
+    "avg_rent": 1700,
+    "risk_bucket": "High",
+    "overall_risk_score": 140,
+    "flags": [
+      {
+        "clause_type": "early_termination",
+        "severity": "high",
+        "excerpt": "The deposit is due upon signing and is non-refundable in the event of early termination.",
+        "why_it_matters": "This clause may conflict with NJ law regarding security deposits, as it states the deposit is non-refundable in case of early termination without providing an itemized list or a clear process for deductions.",
+        "plain_english": "The tenant's security deposit can't be returned if they leave early, even though the lease doesn't specify how the landlord will handle deductions.",
+        "questions_to_ask": [
+          "Are there any specific procedures for handling deductions?",
+          "Can the landlord deduct from the deposit without an itemized list?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "late_fees",
+        "severity": "high",
+        "excerpt": "Any rent not received by the 1st of the month shall be subject to a late fee of $200.00 plus a daily penalty of $25 per day until paid in full.",
+        "why_it_matters": "This clause may conflict with NJ law, as courts have refused enforcement on daily late fees due to their excessive nature. The tenant should review the lease for any potential deductions and ensure they understand how the late fee will be calculated.",
+        "plain_english": "The landlord can charge you $200 plus an additional $25 each day your rent is late, which can add up quickly.",
+        "questions_to_ask": [
+          "Is there a maximum cap on total fees?",
+          "How will the daily penalty be calculated?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "high",
+        "excerpt": "Tenant shall pay a security deposit equal to 2x monthly rent ($3,400.00) upon signing.",
+        "why_it_matters": "The clause allows the landlord to keep the entire deposit if damage exceeds the amount of the deposit, and does not require itemization of deductions.",
+        "plain_english": "This clause gives the landlord too much power over your security deposit.",
+        "questions_to_ask": [
+          "Can we do a move-in walkthrough?",
+          "Will you provide itemized deductions with receipts?"
+        ],
+        "confidence": 0.88
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "high",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 220 Somerset St, Apt 5, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Somerset Holdings Group Tenant: [Tenant Name] SECTION 2 --TERM AND RENT Monthly rent shall be $1,700.00 per month paid as follows: $1,700 per month. SECTION 3 --SECURITY DEPOSIT Tenant",
+        "why_it_matters": "This clause may conflict with NJ law regarding habitability, potentially exposing you to costly repairs.",
+        "plain_english": "The tenant is responsible for fixing everything that breaks, which could lead to significant costs.",
+        "questions_to_ask": [
+          "Does local law allow waiving landlord repair obligations?",
+          "Can we limit this to minor repairs?"
+        ],
+        "confidence": 0.94
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "high",
+        "excerpt": "Tenant shall pay a security deposit equal to 2x monthly rent ($3,400.00) upon signing.",
+        "why_it_matters": "This clause may conflict with NJ law regarding security deposits and the timing of when they are due, as it states the deposit is due at signing without specifying a return window for unapproved subletting.",
+        "plain_english": "The tenant must pay the full security deposit upfront, which could be a problem if the landlord wants to evict them for subletting.",
+        "questions_to_ask": [
+          "Does the landlord have a process in place for approving or rejecting sublets?",
+          "Can the tenant request an extension on paying the security deposit?"
+        ],
+        "confidence": 0.92
+      },
+      {
+        "clause_type": "automatic_renewal",
+        "severity": "high",
+        "excerpt": "This lease shall automatically renew annually.",
+        "why_it_matters": "The clause allows the landlord to renew the lease without tenant consent, potentially leading to a longer tenancy than desired.",
+        "plain_english": "The lease renews itself every year, with no need for your permission.",
+        "questions_to_ask": [
+          "What happens if I don't want to renew?",
+          "Can I negotiate the terms of renewal?"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "high",
+        "excerpt": "Landlord may enter the premises at any time without prior notice to Tenant for inspections, repairs, or any other purpose at Landlord's discretion.",
+        "why_it_matters": "This clause allows landlord entry with no notice required, potentially infringing on tenant's privacy and quiet enjoyment rights.",
+        "plain_english": "The landlord can enter your home at any time without giving you advance notice.",
+        "questions_to_ask": [
+          "Will you agree to 24 hours notice in writing?",
+          "What qualifies as an emergency?"
+        ],
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "id": "nb_004",
+    "address": "15 Joyce Kilmer Ave, Unit 1",
+    "zip": "08901",
+    "lat": 40.484,
+    "lng": -74.4458,
+    "avg_rent": 1650,
+    "risk_bucket": "Moderate",
+    "overall_risk_score": 25,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "low",
+        "excerpt": "A late fee of $40.00 shall apply if rent is not received by the 5th of the month.",
+        "why_it_matters": "This clause provides a clear grace period and a capped late fee, aligning with New Jersey's requirements for reasonable late fees.",
+        "plain_english": "The landlord has set a specific late fee amount ($40) that will be applied if rent is not received by the 5th of each month, giving tenants a 5-business-day grace period.",
+        "questions_to_ask": [
+          "Is there any provision for waiving or reducing the late fee?",
+          "Are there any other conditions under which the late fee would apply?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "low",
+        "excerpt": "Security deposit is due at signing.",
+        "why_it_matters": "The clause states the security deposit is due at signing, which aligns with NJ law requiring deposits to be paid at signing (N.J.S.A. 46:8-19). However, it's worth noting that the excerpt does not specify an amount exceeding 1.5 months' rent, and a return window of 30 days with itemized deductions is also compliant.",
+        "plain_english": "The lease requires you to pay your security deposit at signing, which meets state requirements.",
+        "questions_to_ask": [
+          "Will you provide itemized deductions when the tenant moves out?",
+          "Can we schedule a walk-through inspection?"
+        ],
+        "confidence": 0.92
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "low",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 15 Joyce Kilmer Ave, Unit 1, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Joyce Properties LLC Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for twelve (12) months. Monthly rent is $1,650.00 paid as follows: $1,650 per month due on the f",
+        "why_it_matters": "This clause clarifies the landlord's responsibility for maintaining the property, which can help prevent disputes with tenants.",
+        "plain_english": "The landlord is in charge of fixing things around the house.",
+        "questions_to_ask": [
+          "Does this clause supersede any local law or regulation?",
+          "Can we limit the scope of repairs?"
+        ],
+        "confidence": 0.96
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "low",
+        "excerpt": "Security deposit is due at signing.",
+        "why_it_matters": "Although the clause states a security deposit is due at signing, this is within the allowed timeframe and amount under NJ law (N.J.S.A. 46:8-19), so it does not pose a significant risk to tenants.",
+        "plain_english": "The lease requires the tenant to pay the full first month's rent upfront when signing the agreement.",
+        "questions_to_ask": [
+          "Is this clause part of an automatic renewal?",
+          "Are there any other conditions under which the security deposit is due?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "low",
+        "excerpt": "Subletting requires written Landlord approval, which shall not be unreasonably withheld.",
+        "why_it_matters": "This clause ensures that the landlord must provide a reasonable explanation for withholding consent to sublet, and it also protects the tenant from liability for unauthorized subleasing.",
+        "plain_english": "The landlord needs to give permission in writing before you can rent out your apartment, and they can't say no just because they don't like you.",
+        "questions_to_ask": [
+          "What constitutes an unreasonable withholding of consent?",
+          "How does this clause interact with the 30-day notice requirement for lease renewal?"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "nb_005",
+    "address": "340 Easton Ave, Apt 7C",
+    "zip": "08901",
+    "lat": 40.4773,
+    "lng": -74.4389,
+    "avg_rent": 2100,
+    "risk_bucket": "High",
+    "overall_risk_score": 140,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "high",
+        "excerpt": "A daily late fee of $50 per day applies immediately upon the 2nd of the month if rent has not been received.",
+        "why_it_matters": "This clause may conflict with NJ law, as courts have refused enforcement on daily late fees due to their excessive penalty nature. The tenant should be informed that this type of fee can lead to rapid accumulation and is often struck down by NJ courts.",
+        "plain_english": "The landlord charges $50 per day for each day rent is late after the 2nd, which can add up quickly and may not be allowed under New Jersey law.",
+        "questions_to_ask": [
+          "Is there a grace period before fees start accruing?",
+          "Are there any caps on total fees?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "high",
+        "excerpt": "Tenant shall pay a security deposit equal to 3x monthly rent ($6,300.00) upon signing.",
+        "why_it_matters": "The clause allows for deductions without itemization or notice, giving the landlord excessive control over the tenant's deposit.",
+        "plain_english": "The landlord can keep any amount they want from your deposit without explaining why.",
+        "questions_to_ask": [
+          "Will you provide a detailed explanation of any deductions?",
+          "Can we do a move-in walkthrough?"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "high",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 340 Easton Ave, Apt 7C, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Easton Avenue LLC Tenant: [Tenant Name] SECTION 2 --TERM AND RENT Monthly rent is $2,100.00 paid as follows: $2,100 per month due on the 1st. Annual rent total $25,200. SECTION 3 --SEC",
+        "why_it_matters": "This clause may conflict with NJ law regarding habitability and repair obligations, potentially exposing you to significant costs if challenged in court.",
+        "plain_english": "The tenant is fully responsible for fixing anything that breaks, which could be costly.",
+        "questions_to_ask": [
+          "Does local law allow waiving landlord repair obligations?",
+          "Can we limit this to minor repairs?"
+        ],
+        "confidence": 0.94
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "high",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 340 Easton Ave, Apt 7C, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: Easton Avenue LLC Tenant: [Tenant Name] SECTION 2 --TERM AND RENT Monthly rent is $2,100.00 paid as follows: $2,100 per month due on the 1st. Annual rent total $25,200. SECTION 3 --SEC",
+        "why_it_matters": "This clause eliminates your right to privacy and quiet enjoyment, as the landlord can enter the property with no advance notice.",
+        "plain_english": "The landlord has complete freedom to enter the rental unit whenever they want, without giving you any warning.",
+        "questions_to_ask": [
+          "Will you agree to 24 hours notice in writing?",
+          "What qualifies as an emergency?"
+        ],
+        "confidence": 0.96
+      },
+      {
+        "clause_type": "automatic_renewal",
+        "severity": "high",
+        "excerpt": "This lease automatically renews for one year terms.",
+        "why_it_matters": "NJ law requires a 90-day notice period, but this clause only provides 60 days, potentially leaving tenants vulnerable to renewal without their consent.",
+        "plain_english": "The lease auto-renews every year, but the tenant has less than 3 months to leave if they want to.",
+        "questions_to_ask": [
+          "Does the tenant have any rights during the notice period?",
+          "Can the landlord change the notice period?"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "high",
+        "excerpt": "Subletting is prohibited.",
+        "why_it_matters": "This clause may conflict with NJ law regarding habitability and tenant rights, as it prohibits subletting without court order and can result in immediate termination.",
+        "plain_english": "This clause gives the landlord too much control over who lives in the apartment and can be used to evict tenants unfairly.",
+        "questions_to_ask": [
+          "Can this clause be challenged in court?",
+          "Does it comply with NJ law regarding tenant rights?"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "clause_type": "guest_restrictions",
+        "severity": "high",
+        "excerpt": "No guests may stay overnight more than 2 consecutive nights or more than 4 nights total per month.",
+        "why_it_matters": "This clause combines a short guest limit with severe penalties, potentially violating NJ law regarding habitability and reasonable rules.",
+        "plain_english": "The landlord can evict you for having too many guests, even if it's just for a few days.",
+        "questions_to_ask": [
+          "Does this apply to family or caregivers?",
+          "How will this be enforced?"
+        ],
+        "confidence": 0.89
+      }
+    ]
+  },
+  {
+    "id": "nb_006",
+    "address": "67 French St, Unit 3",
+    "zip": "08901",
+    "lat": 40.4848,
+    "lng": -74.4534,
+    "avg_rent": 1550,
+    "risk_bucket": "Moderate",
+    "overall_risk_score": 30,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "medium",
+        "excerpt": "Rent not received by the 5th incurs a late fee of 8% of monthly rent.",
+        "why_it_matters": "This clause allows for an 8% late fee, which is above the 5% threshold but below the 10% threshold, indicating moderate risk. The tenant should review their payment schedule to avoid this fee.",
+        "plain_english": "The landlord can charge 8% of the monthly rent if you don't pay on time, which is a bit higher than some other states but still within the allowed range.",
+        "questions_to_ask": [
+          "Is there a grace period before the late fee kicks in?",
+          "Can the tenant negotiate the amount of the late fee?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "low",
+        "excerpt": "Security deposit is due upon signing.",
+        "why_it_matters": "The security deposit is due at signing, which aligns with standard NJ law requiring deposits to be paid at or before signing.",
+        "plain_english": "This clause states the deposit is due at signing, following New Jersey's standard practice.",
+        "questions_to_ask": [
+          "Is the amount of the deposit exceeding 1.5 months rent?",
+          "Will you provide itemized deductions with receipts?"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "low",
+        "excerpt": "RESIDENTIAL LEASE AGREEMENT Property: 67 French St, Unit 3, New Brunswick, NJ 08901 SECTION 1 --PARTIES Landlord: French Street Properties Tenant: [Tenant Name] SECTION 2 --TERM AND RENT This lease is for twelve (12) months. Monthly rent is $1,550.00 paid as follows: $1,550 per month due on the firs",
+        "why_it_matters": "This clause ensures that the landlord is responsible for maintaining a safe and livable environment, which is a fundamental aspect of New Jersey law.",
+        "plain_english": "The landlord must keep the place clean and fix any problems.",
+        "questions_to_ask": [
+          "Does this clause align with NJ habitability standards?",
+          "Can we limit the scope of maintenance responsibilities?"
+        ],
+        "confidence": 0.96
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "low",
+        "excerpt": "Security deposit is due upon signing.",
+        "why_it_matters": "Although this clause states a specific timeline for when the security deposit is due, it does not exceed 1.5 months' rent or have an unreasonable return window of less than 30 days.",
+        "plain_english": "The tenant agrees to pay their security deposit as soon as they sign the lease.",
+        "questions_to_ask": [
+          "Does this clause include any deductions from the security deposit?",
+          "Are there any exceptions for early payment?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "low",
+        "excerpt": "Subletting is not permitted without prior written consent of Landlord.",
+        "why_it_matters": "This clause aligns with NJ law requiring landlord approval for subletting, and provides a clear process for obtaining consent.",
+        "plain_english": "The landlord must approve any sublease before it can be made.",
+        "questions_to_ask": [
+          "What is the process for obtaining written consent?",
+          "Can the landlord unreasonably withhold consent?"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "id": "nb_007",
+    "address": "10 Albany St, Unit 12",
+    "zip": "08901",
+    "lat": 40.4874,
+    "lng": -74.4503,
+    "avg_rent": 1725,
+    "risk_bucket": "Moderate",
+    "overall_risk_score": 35,
+    "flags": [
+      {
+        "clause_type": "late_fees",
+        "severity": "medium",
+        "excerpt": "A late fee of 6% of monthly rent applies if rent is not received by the 5th.",
+        "why_it_matters": "This clause allows a non-compounding, flat rate late fee that exceeds the standard 5% threshold but does not exceed 10%. This may lead to disputes over the amount and frequency of late fees.",
+        "plain_english": "The landlord can charge 6% of the monthly rent if you don't pay on time, which is more than the usual 5% but doesn't add up daily like some other states.",
+        "questions_to_ask": [
+          "Is there a maximum cap on total fees?",
+          "How will disputes over late fees be resolved?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "security_deposit",
+        "severity": "low",
+        "excerpt": "Security deposit is due upon signing.",
+        "why_it_matters": "Although the clause states the deposit is due at signing, it does not exceed 1.5 months rent and has a return window of 30 days with itemized deductions.",
+        "plain_english": "The tenant pays the full month's rent upfront as security, but will get it back within 30 days with an itemized list.",
+        "questions_to_ask": [
+          "Will you provide itemized deductions with receipts?",
+          "Can we do a move-in walkthrough?"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "clause_type": "maintenance_repairs",
+        "severity": "low",
+        "excerpt": "Landlord shall maintain the premises in habitable condition.",
+        "why_it_matters": "This clause ensures the landlord is responsible for maintaining a safe and livable environment, which is a fundamental requirement under New Jersey law.",
+        "plain_english": "The landlord must keep the place clean and fix any problems that might make it uninhabitable.",
+        "questions_to_ask": [
+          "Does this clause comply with NJ habitability standards?",
+          "Can we limit the scope of maintenance responsibilities?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "landlord_entry",
+        "severity": "low",
+        "excerpt": "Security deposit is due upon signing.",
+        "why_it_matters": "Although this clause states that security deposit is due at signing, it does not exceed 1.5 months rent and has a return window of 30 days with itemized deductions, which complies with NJ law.",
+        "plain_english": "The tenant pays the full month's rent upfront when signing the lease.",
+        "questions_to_ask": [
+          "Does this clause include any deductions from the security deposit?",
+          "Is there an emergency clause for no-notice entry?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "subletting",
+        "severity": "low",
+        "excerpt": "No subletting without written consent of Landlord.",
+        "why_it_matters": "This clause requires tenant to get landlord's permission before subleasing, which is a standard requirement in NJ law (N.J.S.A. 46:8-19).",
+        "plain_english": "This clause complies with New Jersey state law regarding security deposit and subletting.",
+        "questions_to_ask": [
+          "Does the landlord have to provide written consent?",
+          "What happens if the tenant doesn't get permission?"
+        ],
+        "confidence": 0.99
+      },
+      {
+        "clause_type": "guest_restrictions",
+        "severity": "low",
+        "excerpt": "Guests may not stay more than 5 consecutive days or more than 10 days per month without prior written approval from the Landlord.",
+        "why_it_matters": "This clause allows for reasonable guest stays with advance notice, which is in line with NJ law and tenant expectations.",
+        "plain_english": "Landlords can set limits on how long guests can stay, but they must get permission first.",
+        "questions_to_ask": [
+          "How will the Landlord obtain prior written approval?",
+          "What happens if the Tenant doesn't follow the process?"
+        ],
+        "confidence": 0.95
+      }
+    ]
+  }
+]

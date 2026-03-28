@@ -68,12 +68,25 @@ export default function LeaseMap({ leases }) {
             icon={createRiskIcon(l.risk_bucket)}
           >
             <Popup>
-              <strong>{l.address}</strong><br />
-              Avg rent: <strong>${l.avg_rent}/mo</strong><br />
-              Risk:{' '}
-              <strong style={{ color: RISK_COLORS[l.risk_bucket] }}>
-                {l.risk_bucket}
-              </strong>
+              <div style={{ minWidth: 160 }}>
+                <strong style={{ fontSize: '0.9rem' }}>{l.address}</strong><br />
+                <span style={{ color: '#6b7280', fontSize: '0.8rem' }}>ZIP {l.zip}</span><br /><br />
+                Rent: <strong>${l.avg_rent.toLocaleString()}/mo</strong><br />
+                Risk:{' '}
+                <strong style={{ color: RISK_COLORS[l.risk_bucket] }}>
+                  {l.risk_bucket}
+                </strong>
+                {l.overall_risk_score != null && (
+                  <span style={{ color: '#6b7280', fontSize: '0.8rem' }}>
+                    {' '}(score: {l.overall_risk_score})
+                  </span>
+                )}
+                {l.has_analysis && (
+                  <div style={{ marginTop: '0.4rem', fontSize: '0.78rem', color: '#6b7280' }}>
+                    Click card below for clause details
+                  </div>
+                )}
+              </div>
             </Popup>
           </Marker>
         ))}

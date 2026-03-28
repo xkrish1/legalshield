@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { generateLetter } from '../services/api'
+import { useLease } from '../context/LeaseContext'
 import LetterPreview from '../components/letter/LetterPreview'
 import Button from '../components/ui/Button'
 import Spinner from '../components/ui/Spinner'
+
+const RELEVANT_TYPES = ['automatic_renewal', 'early_termination']
+const SEVERITY_COLOR = { high: '#fef2f2', medium: '#fffbeb', low: '#f0fdf4', unclear: '#f9fafb' }
+const SEVERITY_BORDER = { high: '#fecaca', medium: '#fde68a', low: '#bbf7d0', unclear: '#e5e7eb' }
 
 const EMPTY = {
   tenant_name: '',
@@ -13,10 +18,13 @@ const EMPTY = {
 }
 
 export default function Letter() {
+  const { analysisResult }    = useLease()
   const [form, setForm]       = useState(EMPTY)
   const [letter, setLetter]   = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState('')
+
+  const leaseFlags = analysisResult?.flags?.filter(f => RELEVANT_TYPES.includes(f.clause_type)) ?? []
 
   function update(k, v) { setForm(f => ({ ...f, [k]: v })) }
 
@@ -30,7 +38,7 @@ export default function Letter() {
     setError('')
     setLoading(true)
     try {
-      const data = await generateLetter(form)
+      const data = await generateLetter({ ...form, lease_flags: leaseFlags })
       setLetter(data.letter)
     } catch (e) {
       setError(e.message || 'Generation failed.')
@@ -54,6 +62,52 @@ export default function Letter() {
       <p className="page-subtitle">
         Generate a formal notice-to-vacate letter ready to send to your landlord.
       </p>
+
+      {leaseFlags.length > 0 && (
+        <div className="fade-in" style={{
+          marginBottom: '1.5rem',
+          padding: '1rem 1.25rem',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid #bfdbfe',
+          background: '#eff6ff',
+        }}>
+          <p style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '0.75rem' }}>
+            📋 Lease Terms Detected — letter will reference these clauses
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            {leaseFlags.map(f => (
+              <div key={f.clause_type} style={{
+                padding: '0.6rem 0.85rem',
+                borderRadius: 'var(--radius-sm)',
+                background: SEVERITY_COLOR[f.severity] ?? '#f9fafb',
+                border: `1px solid ${SEVERITY_BORDER[f.severity] ?? '#e5e7eb'}`,
+                fontSize: '0.8rem',
+              }}>
+                <p style={{ fontWeight: 600, marginBottom: '0.2rem', textTransform: 'capitalize' }}>
+                  {f.clause_type.replace(/_/g, ' ')}
+                </p>
+                <p style={{ color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+                  "{f.excerpt}"
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!analysisResult && (
+        <div style={{
+          marginBottom: '1.5rem',
+          padding: '0.75rem 1rem',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid #e5e7eb',
+          background: '#f9fafb',
+          fontSize: '0.85rem',
+          color: 'var(--color-text-muted)',
+        }}>
+          💡 Tip: Analyze your lease first on the home page and the letter will automatically reference your specific notice and termination terms.
+        </div>
+      )}
 
       <div style={{
         display: 'grid',

@@ -15,7 +15,13 @@ def extract_text_from_pdf(pdf_path: str) -> str:
                 try:
                     page_text = page.extract_text()
                     if page_text and page_text.strip():
-                        text_pages.append(page_text.strip())
+                        page_text = re.sub(
+                            r"Docusign Envelope ID:\s*[A-Z0-9\-]+",
+                            "",
+                            page_text,
+                            flags=re.IGNORECASE,
+                        ).strip()
+                        text_pages.append(page_text)
                 except Exception as e:
                     print(f"[PDF] Page {i} failed: {e}")
                     continue

@@ -1,7 +1,7 @@
 import re
 from typing import List
 
-MIN_CHUNK_LENGTH = 80
+MIN_CHUNK_LENGTH = 200
 MAX_CHUNK_LENGTH = 1200
 
 
@@ -29,6 +29,13 @@ def chunk_lease_text(text: str) -> List[str]:
             chunks.extend(sub_chunks)
         else:
             chunks.append(cleaned)
+
+    # Filter out any chunks still starting with DocuSign headers
+    chunks = [
+        c for c in chunks
+        if "docusign" not in c[:100].lower()
+        and "envelope id" not in c[:100].lower()
+    ]
 
     return chunks
 
